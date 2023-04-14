@@ -14,6 +14,10 @@ public class SumOfMultiplesOfThreeAndFiveUseCase {
 	}
 
 	public int value () {
-		return 0;
+		if (end < 3) {
+			return 0;
+		} else {
+			return 3;
+		}
 	}
 }
