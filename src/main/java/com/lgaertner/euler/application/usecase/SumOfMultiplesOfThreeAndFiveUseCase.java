@@ -22,7 +22,6 @@ public class SumOfMultiplesOfThreeAndFiveUseCase {
 			betweenStartAndEnd.add(i);
 		}
 
-		int sum = betweenStartAndEnd.stream().filter(value -> value % 3 == 0 || value % 5 == 0).mapToInt(Integer::intValue).sum();
-		return sum;
+		return betweenStartAndEnd.stream().filter(value -> value % 3 == 0 || value % 5 == 0).mapToInt(Integer::intValue).sum();
 	}
 }
