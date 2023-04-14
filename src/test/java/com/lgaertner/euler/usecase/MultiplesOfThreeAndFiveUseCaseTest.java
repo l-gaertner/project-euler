@@ -25,4 +25,13 @@ public class MultiplesOfThreeAndFiveUseCaseTest {
 		assertEquals(3, useCase.value());
 	}
 
+	@Test
+	public void shouldFindSumOfMultiplesOfThreeAndFiveBetweenOneAndFive() {
+		//when
+		SumOfMultiplesOfThreeAndFiveUseCase useCase = new SumOfMultiplesOfThreeAndFiveUseCase(5);
+
+		//then
+		assertEquals(8, useCase.value());
+	}
+
 }
