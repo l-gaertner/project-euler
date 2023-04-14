@@ -1,5 +1,8 @@
 package com.lgaertner.euler.application.usecase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SumOfMultiplesOfThreeAndFiveUseCase {
 	private final int start;
 	private final int end;
@@ -14,12 +17,12 @@ public class SumOfMultiplesOfThreeAndFiveUseCase {
 	}
 
 	public int value () {
-		if (end < 3) {
-			return 0;
-		} else if (end < 5) {
-			return 3;
-		} else {
-			return 8;
+		List<Integer> betweenStartAndEnd = new ArrayList<>();
+		for (int i = start; i <= end; i++) {
+			betweenStartAndEnd.add(i);
 		}
+
+		int sum = betweenStartAndEnd.stream().filter(value -> value % 3 == 0 || value % 5 == 0).mapToInt(Integer::intValue).sum();
+		return sum;
 	}
 }
