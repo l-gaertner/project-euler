@@ -4,11 +4,12 @@ import com.lgaertner.euler.application.usecase.SumOfMultiplesOfThreeAndFiveUseCa
 import org.junit.Test;
 
 public class MultiplesOfThreeAndFiveUseCaseTest {
-	SumOfMultiplesOfThreeAndFiveUseCase useCase = new SumOfMultiplesOfThreeAndFiveUseCase();
 
 	@Test
 	public void shouldFindSumOfMultiplesOfThreeAndFiveBetweenOneAndTwo() {
-
+		SumOfMultiplesOfThreeAndFiveUseCase useCase = new SumOfMultiplesOfThreeAndFiveUseCase(1, 2);
+		int sum = useCase.value();
+		assert sum == 0;
 	}
 
 }
