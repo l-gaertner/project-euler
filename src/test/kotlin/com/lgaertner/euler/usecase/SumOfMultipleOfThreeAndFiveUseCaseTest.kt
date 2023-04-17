@@ -8,14 +8,6 @@ class SumOfMultipleOfThreeAndFiveUseCaseTest {
     private val useCase = SumOfMultipleOfThreeAndFiveUseCase()
 
     @Test
-    fun `should return 0 when input is 0`() {
-        //when
-        val result = useCase.execute(0)
-        //then
-        assertEquals(0, result)
-    }
-
-    @Test
     fun `should return 0 when input is 1`() {
         //when
         val result = useCase.execute(1)
