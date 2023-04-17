@@ -31,6 +31,15 @@ class SumOfMultipleOfThreeAndFiveUseCaseTest {
         assertEquals(8, result)
     }
 
+
+    @Test
+    fun `should return 23 when input is 9`() {
+        //when
+        val result = useCase.execute(9)
+        //then
+        assertEquals(23, result)
+    }
+
     @Test
     fun `should return 33 when input is 10`() {
         //when
