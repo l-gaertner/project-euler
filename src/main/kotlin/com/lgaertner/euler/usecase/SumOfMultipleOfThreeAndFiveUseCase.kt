@@ -17,12 +17,8 @@ class SumOfMultipleOfThreeAndFiveUseCase {
                     FinalFilter(0)
                 )
             )}
-        val sum = Sum(filteredValues.map{it.value()})
+        val sum = Sum(filteredValues)
         return sum.value()
-    }
-
-    interface LazyInt {
-        fun value(): Int
     }
 
     interface FilterChain {
@@ -43,8 +39,8 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         }
     }
 
-    class Sum(private val values: Collection<Int>) {
+    class Sum(private val values: Collection<FilterChain>) {
 
-        fun value() = values.sum();
+        fun value() = values.map{it.value()}.sum();
     }
 }
