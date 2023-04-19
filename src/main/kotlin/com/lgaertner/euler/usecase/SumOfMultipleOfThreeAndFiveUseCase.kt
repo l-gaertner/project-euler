@@ -1,7 +1,5 @@
 package com.lgaertner.euler.usecase
 
-import com.lgaertner.euler.math.Sum
-
 class SumOfMultipleOfThreeAndFiveUseCase {
     fun execute(maxValue: Int) : Int {
         if (maxValue < 1) throw IllegalArgumentException("maxValue must be greater than 0")
@@ -20,25 +18,25 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         return sum.value()
     }
 
-    interface FilterChain {
-        fun value(): Int
+    interface FilterChain<K> {
+        fun value(): K
     }
 
-    class Filter(private val filter : (Int)->Boolean, private val value: Int, private val next: FilterChain) : FilterChain {
-        override fun value() : Int {
+    class Filter<K>(private val filter : (K)->Boolean, private val value: K, private val next: FilterChain<K>) : FilterChain<K> {
+        override fun value() : K {
             return if (filter(value))
                 value
             else next.value()
         }
     }
 
-    class FinalFilter(private val defaultValue: Int) : FilterChain {
-        override fun value(): Int {
+    class FinalFilter<K>(private val defaultValue: K) : FilterChain<K> {
+        override fun value(): K {
             return defaultValue
         }
     }
 
-    class Sum(private val values: Collection<FilterChain>) {
+    class Sum(private val values: Collection<FilterChain<Int>>) {
 
         fun value() = values.map{it.value()}.sum();
     }
