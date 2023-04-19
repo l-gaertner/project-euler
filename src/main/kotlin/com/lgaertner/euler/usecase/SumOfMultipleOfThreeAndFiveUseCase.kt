@@ -18,8 +18,12 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         return sum.value()
     }
 
-    interface FilterChain<K> {
+    interface Wrapper<K> {
         fun value(): K
+    }
+
+    interface FilterChain<K> : Wrapper<K> {
+        override fun value(): K
     }
 
     class Filter<K>(private val filter : (K)->Boolean, private val value: K, private val next: FilterChain<K>) : FilterChain<K> {
@@ -36,8 +40,8 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         }
     }
 
-    class Sum(private val values: Collection<FilterChain<Int>>) {
+    class Sum(private val values: Collection<Wrapper<Int>>) {
 
-        fun value() = values.map{it.value()}.sum();
+        fun value() = values.sumOf { it.value() };
     }
 }
