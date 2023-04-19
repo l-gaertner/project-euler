@@ -6,14 +6,13 @@ class SumOfMultipleOfThreeAndFiveUseCase {
     fun execute(maxValue: Int) : Int {
         if (maxValue < 1) throw IllegalArgumentException("maxValue must be greater than 0")
 
-        val values = List(maxValue) {it + 1}
-        val filteredValues = List(maxValue){
+        val filteredValues = List(maxValue){value: Int ->
             Filter(
                 {it % 3 == 0},
-                it + 1,
+                value + 1,
                 Filter(
                     {it % 5 == 0},
-                    it + 1,
+                    value + 1,
                     FinalFilter(0)
                 )
             )}
