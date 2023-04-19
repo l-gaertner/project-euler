@@ -7,7 +7,7 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         if (maxValue < 1) throw IllegalArgumentException("maxValue must be greater than 0")
 
         val values = List(maxValue) {it + 1}
-        val filteredValues = values.map{Filter({it % 3 == 0}, it, Filter({it % 5 == 0}, it, FinalFilter(0))).value()}.toList()
+        val filteredValues = List(maxValue){Filter({it % 3 == 0}, it + 1, Filter({it % 5 == 0}, it + 1, FinalFilter(0))).value()}
         val sum = Sum(filteredValues)
         return sum.value()
     }
