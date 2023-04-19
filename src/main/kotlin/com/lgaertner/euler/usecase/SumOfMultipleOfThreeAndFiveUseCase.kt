@@ -16,11 +16,11 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         fun apply(): Int
     }
 
-    class Filter(private val filter : (Int)->Boolean, private val value: Int, private val default: FilterChain) : FilterChain {
+    class Filter(private val filter : (Int)->Boolean, private val value: Int, private val next: FilterChain) : FilterChain {
         override fun apply() : Int {
             return if (filter(value))
                 value
-            else default.apply()
+            else next.apply()
         }
     }
 
