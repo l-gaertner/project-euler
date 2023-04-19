@@ -28,7 +28,7 @@ class SumOfMultipleOfThreeAndFiveUseCaseTest {
         //when
         val result = useCase.execute(5)
         //then
-//        assertEquals(8, result)
+        assertEquals(8, result)
     }
 
 
@@ -37,7 +37,7 @@ class SumOfMultipleOfThreeAndFiveUseCaseTest {
         //when
         val result = useCase.execute(9)
         //then
-//        assertEquals(23, result)
+        assertEquals(23, result)
     }
 
     @Test
@@ -45,6 +45,6 @@ class SumOfMultipleOfThreeAndFiveUseCaseTest {
         //when
         val result = useCase.execute(10)
         //then
-//        assertEquals(33, result)
+        assertEquals(33, result)
     }
 }
