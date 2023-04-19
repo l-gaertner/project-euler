@@ -7,7 +7,7 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         if (maxValue < 1) throw IllegalArgumentException("maxValue must be greater than 0")
 
         val values = List(maxValue) {it + 1}
-        val filteredValues = values.map{Filter({it % 3 == 0 || it % 5 == 0}, it, 0).apply()}.toList()
+        val filteredValues = values.map{Filter({it % 3 == 0 || it % 5 == 0}, it, FinalFilter(0)).apply()}.toList()
         val sum = Sum(filteredValues)
         return sum.value()
     }
@@ -16,11 +16,17 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         fun apply(): Int
     }
 
-    class Filter(private val filter : (Int)->Boolean, private val value: Int, private val default: Int) : FilterChain{
+    class Filter(private val filter : (Int)->Boolean, private val value: Int, private val default: FinalFilter) : FilterChain {
         override fun apply() : Int {
             return if (filter(value))
                 value
-            else default
+            else default.apply()
+        }
+    }
+
+    class FinalFilter(private val defaultValue: Int) :FilterChain {
+        override fun apply(): Int {
+            return defaultValue
         }
     }
 }
