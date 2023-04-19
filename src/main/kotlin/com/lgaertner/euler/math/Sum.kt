@@ -1,3 +1,6 @@
 package com.lgaertner.euler.math
 
-import com.lgaertner.euler.usecase.SumOfMultipleOfThreeAndFiveUseCase
+class Sum(private val values: Collection<Wrapper<Int>>) {
+
+    fun value() = values.sumOf { it.value() };
+}
