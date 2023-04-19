@@ -12,12 +12,8 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         return sum.value()
     }
 
-    interface FilterChain {
-        fun apply(): Boolean
-    }
-
-    class Filter(private val filter : (Int)->Boolean, private val value: Int) : FilterChain {
-        override fun apply() : Boolean {
+    class Filter(private val filter : (Int)->Boolean, private val value: Int) {
+        fun apply() : Boolean {
             return (filter(value))
         }
     }
