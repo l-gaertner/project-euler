@@ -11,6 +11,11 @@ class SumOfEvenFibonaciUseCase {
 class FibonacciNumber(private val startValues:List<Int>, private val limit: Int) {
 
     fun values(): List<Int> {
-        return startValues
+        if (startValues.last() > limit)
+            return startValues.dropLast(1)
+
+        val newValues:List<Int> = listOf(startValues, listOf(startValues.last() + startValues.dropLast(1).last())).flatten()
+
+        return FibonacciNumber(newValues, limit).values()
     }
 }
