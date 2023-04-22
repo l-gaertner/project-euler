@@ -12,4 +12,10 @@ class SumOfEvenFibonaciUseCaseTest {
         val result = sumOfEvenFibonaciUseCase.execute(1)
         assertEquals(0, result);
     }
+
+    @Test
+    fun `should return 0 for 2`() {
+        val result = sumOfEvenFibonaciUseCase.execute(2)
+        assertEquals(0, result);
+    }
 }
