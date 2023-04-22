@@ -7,3 +7,10 @@ class SumOfEvenFibonaciUseCase {
         else 2
     }
 }
+
+class FibonacciNumber(private val startValues:List<Int>, private val limit: Int) {
+
+    fun values(): List<Int> {
+        return startValues
+    }
+}
