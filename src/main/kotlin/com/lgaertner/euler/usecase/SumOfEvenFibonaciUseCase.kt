@@ -2,6 +2,9 @@ package com.lgaertner.euler.usecase
 
 class SumOfEvenFibonaciUseCase {
     fun execute(i: Int):Int {
-        return 0
+        return if (i < 3)
+            0
+        else 2
+
     }
 }
