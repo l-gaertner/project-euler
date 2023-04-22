@@ -3,6 +3,7 @@ package com.lgaertner.euler.usecase
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
+
 class SumOfMultipleOfThreeAndFiveUseCaseTest {
 
     private val useCase = SumOfMultipleOfThreeAndFiveUseCase()
