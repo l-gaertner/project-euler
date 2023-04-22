@@ -2,6 +2,7 @@ package com.lgaertner.euler.usecase
 
 import com.lgaertner.euler.math.Filter
 import com.lgaertner.euler.math.FinalFilter
+import com.lgaertner.euler.math.MultipleOfTwoFilter
 import com.lgaertner.euler.math.Sum
 
 class SumOfEvenFibonaciUseCase {
@@ -9,7 +10,7 @@ class SumOfEvenFibonaciUseCase {
         return if (limit < 2)
             0
         else {
-            Sum(FibonacciSeries(listOf(1,1), limit).values().map{ Filter({it % 2 == 0}, it, FinalFilter(0)) }).value()
+            Sum(FibonacciSeries(listOf(1,1), limit).values().map{ MultipleOfTwoFilter(it) }).value()
         }
     }
 }
