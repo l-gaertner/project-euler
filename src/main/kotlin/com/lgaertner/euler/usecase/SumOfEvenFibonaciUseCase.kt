@@ -4,11 +4,11 @@ import com.lgaertner.euler.math.MultipleOfTwoFilter
 import com.lgaertner.euler.math.Sum
 
 class SumOfEvenFibonaciUseCase {
-    fun below(limit: Int): Int {
-        return if (limit < 2)
+    fun below(maxValue: Int): Int {
+        return if (maxValue < 2)
             0
         else {
-            Sum(FibonacciSeries(listOf(1,1), limit).values().map{ MultipleOfTwoFilter(it) }).value()
+            Sum(FibonacciSeries(listOf(1,1), maxValue).values().map{ MultipleOfTwoFilter(it) }).value()
         }
     }
 }
