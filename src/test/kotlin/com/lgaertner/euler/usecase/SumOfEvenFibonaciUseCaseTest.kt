@@ -1,6 +1,6 @@
 package com.lgaertner.euler.usecase
 
-import org.junit.Test
+import kotlin.test.Test
 
 class SumOfEvenFibonaciUseCaseTest {
 
