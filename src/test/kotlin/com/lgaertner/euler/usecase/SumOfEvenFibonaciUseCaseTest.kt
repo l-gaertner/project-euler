@@ -36,4 +36,11 @@ class SumOfEvenFibonaciUseCaseTest {
         val result = sumOfEvenFibonaciUseCase.below(10)
         assertEquals(10, result);
     }
+
+
+    @Test
+    fun `should return 2 for 20`() {
+        val result = sumOfEvenFibonaciUseCase.below(20)
+        assertEquals(10, result);
+    }
 }
