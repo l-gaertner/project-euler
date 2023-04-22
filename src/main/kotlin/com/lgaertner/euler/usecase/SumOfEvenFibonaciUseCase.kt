@@ -13,14 +13,14 @@ class SumOfEvenFibonaciUseCase {
     }
 }
 
-class FibonacciSeries(private val startValues:List<Int>, private val limit: Int) {
+class FibonacciSeries(private val startValues:List<Int>, private val maxValue: Int) {
 
     fun values(): List<Int> {
-        if (startValues.last() > limit)
+        if (startValues.last() > maxValue)
             return startValues.dropLast(1)
 
         val newValues:List<Int> = listOf(startValues, listOf(startValues.last() + startValues.dropLast(1).last())).flatten()
 
-        return FibonacciSeries(newValues, limit).values()
+        return FibonacciSeries(newValues, maxValue).values()
     }
 }
