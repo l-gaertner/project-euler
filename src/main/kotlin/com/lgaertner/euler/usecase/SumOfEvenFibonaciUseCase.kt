@@ -1,12 +1,10 @@
 package com.lgaertner.euler.usecase
 
-import com.lgaertner.euler.math.Filter
-import com.lgaertner.euler.math.FinalFilter
 import com.lgaertner.euler.math.MultipleOfTwoFilter
 import com.lgaertner.euler.math.Sum
 
 class SumOfEvenFibonaciUseCase {
-    fun execute(limit: Int): Int {
+    fun below(limit: Int): Int {
         return if (limit < 2)
             0
         else {
