@@ -4,9 +4,9 @@ interface FilterChain<K> : Wrapper<K> {
     override fun value(): K
 }
 
-class Filter<K>(private val filter : (K)->Boolean, private val value: K, private val next: FilterChain<K>) :
+class Filter<K>(private val filter: (K) -> Boolean, private val value: K, private val next: FilterChain<K>) :
     FilterChain<K> {
-    override fun value() : K {
+    override fun value(): K {
         return if (filter(value))
             value
         else next.value()

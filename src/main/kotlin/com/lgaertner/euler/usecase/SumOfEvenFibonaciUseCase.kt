@@ -8,18 +8,19 @@ class SumOfEvenFibonaciUseCase {
         return if (maxValue < 2)
             0
         else {
-            Sum(FibonacciSeries(listOf(1,1), maxValue).values().map{ MultipleOfTwoFilter(it) }).value()
+            Sum(FibonacciSeries(listOf(1, 1), maxValue).values().map { MultipleOfTwoFilter(it) }).value()
         }
     }
 }
 
-class FibonacciSeries(private val startValues:List<Int>, private val maxValue: Int) {
+class FibonacciSeries(private val startValues: List<Int>, private val maxValue: Int) {
 
     fun values(): List<Int> {
         if (startValues.last() > maxValue)
             return startValues.dropLast(1)
 
-        val newValues:List<Int> = listOf(startValues, listOf(startValues.last() + startValues.dropLast(1).last())).flatten()
+        val newValues: List<Int> =
+            listOf(startValues, listOf(startValues.last() + startValues.dropLast(1).last())).flatten()
 
         return FibonacciSeries(newValues, maxValue).values()
     }

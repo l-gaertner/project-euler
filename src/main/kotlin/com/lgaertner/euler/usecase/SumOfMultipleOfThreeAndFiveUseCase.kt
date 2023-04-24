@@ -6,15 +6,15 @@ import com.lgaertner.euler.math.FinalFilter
 import com.lgaertner.euler.math.Sum
 
 class SumOfMultipleOfThreeAndFiveUseCase {
-    fun execute(maxValue: Int) : Int {
+    fun execute(maxValue: Int): Int {
         if (maxValue < 1) throw IllegalArgumentException("maxValue must be greater than 0")
 
-        val filteredValues = List(maxValue){value: Int ->
+        val filteredValues = List(maxValue) { value: Int ->
             Filter(
-                {it % 3 == 0},
+                { it % 3 == 0 },
                 value + 1,
                 Filter(
-                    {it % 5 == 0},
+                    { it % 5 == 0 },
                     value + 1,
                     FinalFilter(0)
                 )
