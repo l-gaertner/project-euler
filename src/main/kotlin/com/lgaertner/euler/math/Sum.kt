@@ -1,6 +1,6 @@
 package com.lgaertner.euler.math
 
-class Sum(private val values: Collection<Wrapper<Int>>) {
+class Sum(private val values: Collection<Int>) {
 
-    fun value() = values.sumOf { it.value() };
+    fun value() = values.sum()
 }
