@@ -12,7 +12,7 @@ class SumOfMultipleOfThreeAndFiveUseCase {
         val filteredValues = List(maxValue) { it + 1 }.filter {
             MultipleOfThreeOrFiveFilter(it).value()
         }
-        val sum = filteredValues.sum()
+        val sum = Sum(filteredValues).value()
         return sum
     }
 
