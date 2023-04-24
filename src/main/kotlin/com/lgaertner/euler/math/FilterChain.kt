@@ -15,6 +15,6 @@ class Filter<K>(private val filter: (K) -> Boolean, private val value: K, privat
 
 class FinalFilter<K> : FilterChain<K> {
     override fun value(): Boolean {
-        return true
+        return false
     }
 }
