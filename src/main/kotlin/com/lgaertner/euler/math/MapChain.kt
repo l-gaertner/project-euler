@@ -1,11 +1,11 @@
 package com.lgaertner.euler.math
 
-interface FilterChain<K> : Wrapper<K> {
+interface MapChain<K> : Wrapper<K> {
     override fun value(): K
 }
 
-class Filter<K>(private val filter: (K) -> Boolean, private val value: K, private val next: FilterChain<K>) :
-    FilterChain<K> {
+class Map<K>(private val filter: (K) -> Boolean, private val value: K, private val next: MapChain<K>) :
+    MapChain<K> {
     override fun value(): K {
         return if (filter(value))
             value
@@ -13,7 +13,7 @@ class Filter<K>(private val filter: (K) -> Boolean, private val value: K, privat
     }
 }
 
-class FinalFilter<K>(private val defaultValue: K) : FilterChain<K> {
+class FinalMap<K>(private val defaultValue: K) : MapChain<K> {
     override fun value(): K {
         return defaultValue
     }

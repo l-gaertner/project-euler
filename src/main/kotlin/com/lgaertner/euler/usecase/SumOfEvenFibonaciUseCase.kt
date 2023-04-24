@@ -1,6 +1,6 @@
 package com.lgaertner.euler.usecase
 
-import com.lgaertner.euler.math.MultipleOfTwoFilter
+import com.lgaertner.euler.math.MultipleOfTwoMap
 import com.lgaertner.euler.math.Sum
 
 class SumOfEvenFibonaciUseCase {
@@ -8,7 +8,7 @@ class SumOfEvenFibonaciUseCase {
         return if (maxValue < 2)
             0
         else {
-            Sum(FibonacciSeries(listOf(1, 1), maxValue).values().map { MultipleOfTwoFilter(it) }).value()
+            Sum(FibonacciSeries(listOf(1, 1), maxValue).values().map { MultipleOfTwoMap(it) }).value()
         }
     }
 }
