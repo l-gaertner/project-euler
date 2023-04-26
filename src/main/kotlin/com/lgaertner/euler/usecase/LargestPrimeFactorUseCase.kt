@@ -19,6 +19,11 @@ class PrimeFactors(private val number: Int) {
         } else listOf()
     }
 
+    private fun divisors(): Collection<Int> {
+        val values = List(number - 2) {it + 2}
+        return values.filter{number % it == 0}
+    }
+
     private fun isPrime(): Boolean {
         return isPrime(number)
     }
@@ -27,8 +32,6 @@ class PrimeFactors(private val number: Int) {
         if (value == 2)
             return true
 
-        val values = List(value - 2) {it + 2}
-        val divisors = values.filter{value % it == 0}
-        return divisors.isEmpty()
+        return divisors().isEmpty()
     }
 }
