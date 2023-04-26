@@ -10,8 +10,11 @@ class LargestPrimeFactorUseCase {
     }
 
     private fun isPrime(value: Int): Boolean {
-        return if (value == 2)
-            true
-        else value == 3
+        if (value == 2)
+            return true
+
+        val values = List(value - 2) {it + 2}
+        val divisors = values.filter{value % it == 0}
+        return divisors.isEmpty()
     }
 }
