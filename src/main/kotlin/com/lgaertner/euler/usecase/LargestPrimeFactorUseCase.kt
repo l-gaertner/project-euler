@@ -9,4 +9,3 @@ class LargestPrimeFactorUseCase {
         return largestPrimeFactor.value()
     }
 }
-
