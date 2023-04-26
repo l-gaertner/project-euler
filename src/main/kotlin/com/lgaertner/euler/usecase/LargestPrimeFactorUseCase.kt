@@ -24,6 +24,8 @@ class PrimeFactors(private val number: Int) {
     }
 
     private fun isPrimeNumber(value: Int):Boolean {
+        if (value == 1)
+            return false
         if (value == 2)
             return true
         return FactorsWithoutOneAndSelf(value).isEmpty()
