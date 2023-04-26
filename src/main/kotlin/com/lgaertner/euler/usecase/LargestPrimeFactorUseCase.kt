@@ -3,11 +3,7 @@ package com.lgaertner.euler.usecase
 class LargestPrimeFactorUseCase {
     fun execute(number: Int): Int {
         val primeFactor = PrimeFactors(number)
-        if (primeFactor.values().isNotEmpty()) {
-            return primeFactor.values().max()
-        } else {
-            return 2
-        }
+        return primeFactor.values().max()
     }
 }
 
