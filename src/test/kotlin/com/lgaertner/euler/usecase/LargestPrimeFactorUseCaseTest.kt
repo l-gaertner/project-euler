@@ -22,4 +22,10 @@ class LargestPrimeFactorUseCaseTest {
         val largestPrimeFactor = useCase.execute(4)
         assertEquals(2, largestPrimeFactor)
     }
+
+    @Test
+    fun `should return 5 as largest prime factor of 5`() {
+        val largestPrimeFactor = useCase.execute(5)
+        assertEquals(5, largestPrimeFactor)
+    }
 }
