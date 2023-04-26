@@ -13,8 +13,8 @@ class SumOfMultipleOfThreeAndFiveUseCase {
             List(maxValue) { it + 1 }.filter {
                 MultipleOfThreeOrFiveFilter(it).value()
             }
-        ).value()
-        return sum
+        )
+        return sum.value()
     }
 
 }
