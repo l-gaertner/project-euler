@@ -3,7 +3,7 @@ package com.lgaertner.euler.usecase
 class LargestPrimeFactorUseCase {
     fun execute(number: Int): Int {
         val primeFactor = PrimeFactors(number)
-        if (primeFactor.isPrime()) {
+        if (primeFactor.values().isNotEmpty()) {
             return number
         } else {
             return 2
@@ -12,6 +12,12 @@ class LargestPrimeFactorUseCase {
 }
 
 class PrimeFactors(private val number: Int) {
+
+    fun values(): Collection<Int> {
+        return if (isPrime()) {
+            listOf(1, number)
+        } else listOf()
+    }
 
     fun isPrime(): Boolean {
         return isPrime(number)
