@@ -1,7 +1,5 @@
 package com.lgaertner.euler.usecase
 
-import com.lgaertner.euler.math.Filter
-import com.lgaertner.euler.math.FinalFilter
 import com.lgaertner.euler.math.MultipleOfThreeOrFiveFilter
 import com.lgaertner.euler.math.Sum
 
