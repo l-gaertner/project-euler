@@ -20,13 +20,8 @@ class PrimeFactors(private val number: Int) {
     }
 
     private fun isPrime(): Boolean {
-        return isPrime(number)
-    }
-
-    private fun isPrime(value: Int): Boolean {
-        if (value == 2)
+        if (number == 2)
             return true
-
         return divisorsWithoutOneAndSelf().isEmpty()
     }
 
