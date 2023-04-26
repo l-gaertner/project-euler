@@ -4,7 +4,7 @@ class LargestPrimeFactorUseCase {
     fun execute(number: Int): Int {
         val primeFactor = PrimeFactors(number)
         if (primeFactor.values().isNotEmpty()) {
-            return number
+            return primeFactor.values().max()
         } else {
             return 2
         }
