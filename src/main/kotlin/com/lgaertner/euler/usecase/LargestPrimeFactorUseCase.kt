@@ -23,8 +23,8 @@ class PrimeFactors(private val number: Int) {
         return isPrimeNumber(number)
     }
 
-    private fun isPrimeNumber(number: Int):Boolean {
-        if (number == 2)
+    private fun isPrimeNumber(value: Int):Boolean {
+        if (value == 2)
             return true
         return FactorsWithoutOneAndSelf().isEmpty()
     }
