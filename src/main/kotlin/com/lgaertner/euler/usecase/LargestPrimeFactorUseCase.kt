@@ -5,12 +5,12 @@ import com.lgaertner.euler.math.Wrapper
 
 class LargestPrimeFactorUseCase {
     fun execute(number: Int): Int {
-        val largestPrimeFactor = Max(PrimeFactors(number)).value()
-        return largestPrimeFactor
+        val largestPrimeFactor = Max(PrimeFactors(number))
+        return largestPrimeFactor.value()
     }
 }
 
-class PrimeFactors(private val number: Int) :Wrapper<Collection<Int>> {
+class PrimeFactors(private val number: Int) : Wrapper<Collection<Int>> {
 
     fun values(): Collection<Int> {
         return if (isPrime()) {
@@ -22,7 +22,7 @@ class PrimeFactors(private val number: Int) :Wrapper<Collection<Int>> {
         return isPrimeNumber(number)
     }
 
-    private fun isPrimeNumber(value: Int):Boolean {
+    private fun isPrimeNumber(value: Int): Boolean {
         if (value == 1)
             return false
         if (value == 2)
@@ -31,12 +31,12 @@ class PrimeFactors(private val number: Int) :Wrapper<Collection<Int>> {
     }
 
     private fun FactorsWithoutOneAndSelf(value: Int): Collection<Int> {
-        val values = List(value - 2) {it + 2}
-        val factorsWithoutOneAndSelf = values.filter{value % it == 0}
-        return factorsWithoutOneAndSelf.filter{isPrimeNumber(it)}
+        val values = List(value - 2) { it + 2 }
+        val factorsWithoutOneAndSelf = values.filter { value % it == 0 }
+        return factorsWithoutOneAndSelf.filter { isPrimeNumber(it) }
     }
 
-    override fun value(): Collection<Int> {
+    override fun collapse(): Collection<Int> {
         return values()
     }
 }
