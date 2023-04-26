@@ -2,8 +2,8 @@ package com.lgaertner.euler.usecase
 
 class LargestPrimeFactorUseCase {
     fun execute(number: Int): Int {
-        val primeFactor = PrimeFactors(number)
-        return primeFactor.values().max()
+        val largestPrimeFactor = PrimeFactors(number).values().max()
+        return largestPrimeFactor
     }
 }
 
