@@ -19,9 +19,10 @@ class PrimeFactors(private val number: Int) {
         } else listOf()
     }
 
-    fun isPrime(): Boolean {
+    private fun isPrime(): Boolean {
         return isPrime(number)
     }
+
     private fun isPrime(value: Int): Boolean {
         if (value == 2)
             return true
