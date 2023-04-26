@@ -20,6 +20,10 @@ class PrimeFactors(private val number: Int) {
     }
 
     private fun isPrime(): Boolean {
+        return isPrimeNumber(number)
+    }
+
+    private fun isPrimeNumber(number: Int):Boolean {
         if (number == 2)
             return true
         return divisorsWithoutOneAndSelf().isEmpty()
