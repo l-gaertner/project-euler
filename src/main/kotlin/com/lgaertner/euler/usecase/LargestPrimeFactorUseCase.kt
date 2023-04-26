@@ -34,6 +34,6 @@ class PrimeFactors(private val number: Int) {
     private fun FactorsWithoutOneAndSelf(value: Int): Collection<Int> {
         val values = List(value - 2) {it + 2}
         val factorsWithoutOneAndSelf = values.filter{value % it == 0}
-        return factorsWithoutOneAndSelf
+        return factorsWithoutOneAndSelf.filter{isPrimeNumber(it)}
     }
 }
