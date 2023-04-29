@@ -27,10 +27,10 @@ class PrimeFactors(private val number: Int) : Wrapper<Collection<Int>> {
     }
 
     private fun primesBelow(value: Int): Collection<Int> {
-        val values = MutableList(value - 2) { it + 2 }
+        val values = MutableList(value - 1) { it + 2 }
         for (currentValue in values) {
             var multipleOfCurrentValue = currentValue * 2
-            while (multipleOfCurrentValue in 1 until value) {
+            while (multipleOfCurrentValue in 1 .. value) {
                 values[multipleOfCurrentValue - 2] = 0
                 multipleOfCurrentValue += currentValue
             }
