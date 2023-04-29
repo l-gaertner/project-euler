@@ -23,7 +23,13 @@ class PrimeFactors(private val number: Int) : Wrapper<Collection<Int>> {
     private fun FactorsWithoutOneAndSelf(value: Int): Collection<Int> {
         val values = List(value - 2) { it + 2 }
         val factorsWithoutOneAndSelf = values.filter { value % it == 0 }
-        return factorsWithoutOneAndSelf.filter { isPrimeNumber(it) }
+        val primesBelow = primesBelow(value)
+        return factorsWithoutOneAndSelf.filter { primesBelow.contains(it) }
+    }
+
+    private fun primesBelow(value: Int): Collection<Int> {
+        val values = List(value - 2) { it + 2 }
+        return values.filter { isPrimeNumber(it) }
     }
 
     override fun collapse(): Collection<Int> {
