@@ -24,7 +24,8 @@ class PrimeFactors(private val number: Int) : Wrapper<Collection<Int>> {
         val values = List(value - 2) { it + 2 }
         val factorsWithoutOneAndSelf = values.filter { value % it == 0 }
         val primesBelow = primesBelow(value)
-        return factorsWithoutOneAndSelf.filter { primesBelow.contains(it) }
+        val primeFactorsWithoutSelf = primesBelow.filter{ value % it == 0 }
+        return primeFactorsWithoutSelf
     }
 
     private fun primesBelow(value: Int): Collection<Int> {
