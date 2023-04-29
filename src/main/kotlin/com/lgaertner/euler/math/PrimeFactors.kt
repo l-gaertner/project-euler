@@ -3,9 +3,7 @@ package com.lgaertner.euler.math
 class PrimeFactors(private val number: Int) : Wrapper<Collection<Int>> {
 
     fun values(): Collection<Int> {
-        return if (isPrime()) {
-            listOf(1, number)
-        } else FactorsWithoutOneAndSelf(number)
+        return factorsWithoutOneAndSelf(number)
     }
 
     private fun isPrime(): Boolean {
@@ -17,10 +15,10 @@ class PrimeFactors(private val number: Int) : Wrapper<Collection<Int>> {
             return false
         if (value == 2)
             return true
-        return FactorsWithoutOneAndSelf(value).isEmpty()
+        return factorsWithoutOneAndSelf(value).isEmpty()
     }
 
-    private fun FactorsWithoutOneAndSelf(value: Int): Collection<Int> {
+    private fun factorsWithoutOneAndSelf(value: Int): Collection<Int> {
         val primesBelow = primesBelow(value)
         val primeFactorsWithoutSelf = primesBelow.filter{ value % it == 0 }
         return primeFactorsWithoutSelf
