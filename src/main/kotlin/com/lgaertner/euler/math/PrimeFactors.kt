@@ -27,8 +27,15 @@ class PrimeFactors(private val number: Int) : Wrapper<Collection<Int>> {
     }
 
     private fun primesBelow(value: Int): Collection<Int> {
-        val values = List(value - 2) { it + 2 }
-        return values.filter { isPrimeNumber(it) }
+        val values = MutableList(value - 2) { it + 2 }
+        for (currentValue in values) {
+            var multipleOfCurrentValue = currentValue * 2
+            while (multipleOfCurrentValue < values.max() && multipleOfCurrentValue > 0) {
+                values[multipleOfCurrentValue - 2] = 0
+                multipleOfCurrentValue += currentValue
+            }
+        }
+        return values.filter { it != 0 }
     }
 
     override fun collapse(): Collection<Int> {
