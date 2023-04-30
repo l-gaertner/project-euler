@@ -41,9 +41,9 @@ class LargestPrimeFactorUseCaseTest {
         assertEquals(2, largestPrimeFactor)
     }
     
-//    @Test
-//    fun `should return 6857 as largest prime factor of 600851475143` () {
-//        val largestPrimeFactor = useCase.execute(600851475143)
-//        assertEquals(6857, largestPrimeFactor)
-//    }
+    @Test
+    fun `should return 6857 as largest prime factor of 600851475143` () {
+        val largestPrimeFactor = useCase.execute(600851475143)
+        assertEquals(6857, largestPrimeFactor)
+    }
 }
