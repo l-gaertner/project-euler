@@ -7,7 +7,7 @@ class PrimeFactors(private val number: Long) : Wrapper<Collection<Number>> {
     fun values(): Collection<Long> {
         return if (isPrime()) {
             listOf(1, number)
-        } else FactorsWithoutOneAndSelf(number)
+        } else factorsWithoutOneAndSelf(number)
     }
 
     private fun isPrime(): Boolean {
@@ -19,16 +19,16 @@ class PrimeFactors(private val number: Long) : Wrapper<Collection<Number>> {
             return false
         if (value == 2L)
             return true
-        return FactorsWithoutOneAndSelf(value).isEmpty()
+        return factorsWithoutOneAndSelf(value).isEmpty()
     }
 
-    private fun FactorsWithoutOneAndSelf(value: Long): Collection<Long> {
+    private fun factorsWithoutOneAndSelf(value: Long): Collection<Long> {
         val values = List(sqrt(value.toDouble()).toInt()) { it + 2L }
         val factorsWithoutOneAndSelf = values.filter { value % it == 0L }
         return factorsWithoutOneAndSelf.filter { isPrimeNumber(it) }
     }
 
-    override fun collapse(): Collection<Long> {
+    override fun evaluate(): Collection<Long> {
         return values()
     }
 }
