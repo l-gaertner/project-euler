@@ -8,7 +8,7 @@ class SumOfMultipleOfThreeAndFiveUseCase {
     fun execute(maxValue: Int): Int {
         if (maxValue < 1) throw IllegalArgumentException("maxValue must be greater than 0")
 
-        val sum = Sum(MultiplesOfThreeOrFive(List(maxValue) { it + 1 }).collect())
+        val sum = Sum(MultiplesOfThreeOrFive(List(maxValue) { it + 1 }))
         return sum.value()
     }
 

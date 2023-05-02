@@ -10,7 +10,7 @@ class SumOfEvenFibonaciUseCase {
         return if (maxValue < 2)
             0
         else {
-            Sum(MultiplesOfTwo(FibonacciSeries(listOf(1, 1), maxValue).values()).collect()).value()
+            Sum(MultiplesOfTwo(FibonacciSeries(listOf(1, 1), maxValue))).value()
         }
     }
 }
