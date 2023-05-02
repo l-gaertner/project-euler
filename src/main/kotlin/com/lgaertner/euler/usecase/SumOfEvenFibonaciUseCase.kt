@@ -2,7 +2,7 @@ package com.lgaertner.euler.usecase
 
 import com.lgaertner.euler.math.FibonacciSeries
 import com.lgaertner.euler.math.MultipleOfTwoFilter
-import com.lgaertner.euler.math.Sum
+import com.lgaertner.euler.math.collectionops.Sum
 
 class SumOfEvenFibonaciUseCase {
     fun below(maxValue: Int): Int {

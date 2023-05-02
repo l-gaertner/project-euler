@@ -1,7 +1,7 @@
 package com.lgaertner.euler.usecase
 
 import com.lgaertner.euler.math.MultipleOfThreeOrFiveFilter
-import com.lgaertner.euler.math.Sum
+import com.lgaertner.euler.math.collectionops.Sum
 
 class SumOfMultipleOfThreeAndFiveUseCase {
     fun execute(maxValue: Int): Int {
