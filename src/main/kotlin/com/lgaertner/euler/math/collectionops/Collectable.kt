@@ -1,4 +1,4 @@
-package com.lgaertner.euler.math
+package com.lgaertner.euler.math.collectionops
 
 interface Collectable<K> {
     fun collect(): Collection<K>

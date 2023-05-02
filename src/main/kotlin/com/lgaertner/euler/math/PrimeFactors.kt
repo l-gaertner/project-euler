@@ -1,5 +1,6 @@
 package com.lgaertner.euler.math
 
+import com.lgaertner.euler.math.collectionops.Collectable
 import kotlin.math.sqrt
 
 class PrimeFactors(private val number: Long) : Collectable<Number> {

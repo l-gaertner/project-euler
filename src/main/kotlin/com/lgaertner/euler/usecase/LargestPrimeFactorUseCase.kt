@@ -1,6 +1,6 @@
 package com.lgaertner.euler.usecase
 
-import com.lgaertner.euler.math.Max
+import com.lgaertner.euler.math.collectionops.Max
 import com.lgaertner.euler.math.PrimeFactors
 
 class LargestPrimeFactorUseCase {
