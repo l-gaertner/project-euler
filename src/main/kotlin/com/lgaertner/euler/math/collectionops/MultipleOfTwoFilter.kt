@@ -1,4 +1,4 @@
-package com.lgaertner.euler.math
+package com.lgaertner.euler.math.collectionops
 
 class MultipleOfTwoFilter(private val value: Int) : FilterChain<Int> {
     override fun value(): Boolean {
@@ -20,6 +20,6 @@ class MultipleOfFiveFilter(private val value: Int) : FilterChain<Int> {
 
 class MultipleOfThreeOrFiveFilter(private val value: Int) : FilterChain<Int> {
     override fun value(): Boolean {
-        return Filter({MultipleOfThreeFilter(it).value()}, value, Filter({MultipleOfFiveFilter(it).value()}, value, FinalFilter())).value()
+        return Filter({ MultipleOfThreeFilter(it).value()}, value, Filter({ MultipleOfFiveFilter(it).value()}, value, FinalFilter())).value()
     }
 }
