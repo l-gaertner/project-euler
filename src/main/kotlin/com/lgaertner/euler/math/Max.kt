@@ -1,7 +1,7 @@
 package com.lgaertner.euler.math
 
-class Max(private val values: Wrapper<Collection<Number>>) {
+class Max(private val values: Collectable<Number>) {
     fun value(): Number {
-        return values.evaluate().maxOf { it.toLong() }
+        return values.collect().maxOf { it.toLong() }
     }
 }

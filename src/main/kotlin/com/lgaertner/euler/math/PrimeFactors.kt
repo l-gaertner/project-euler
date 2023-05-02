@@ -2,7 +2,7 @@ package com.lgaertner.euler.math
 
 import kotlin.math.sqrt
 
-class PrimeFactors(private val number: Long) : Wrapper<Collection<Number>> {
+class PrimeFactors(private val number: Long) : Collectable<Number> {
 
     fun values(): Collection<Long> {
         return if (isPrime()) {
@@ -28,7 +28,7 @@ class PrimeFactors(private val number: Long) : Wrapper<Collection<Number>> {
         return factorsWithoutOneAndSelf.filter { isPrimeNumber(it) }
     }
 
-    override fun evaluate(): Collection<Long> {
+    override fun collect(): Collection<Long> {
         return values()
     }
 }
