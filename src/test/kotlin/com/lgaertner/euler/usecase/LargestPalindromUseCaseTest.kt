@@ -25,4 +25,11 @@ class LargestPalindromUseCaseTest {
         val value = useCase.palindrome()
         assertEquals(9, value)
     }
+
+    @Test
+    fun `should return 9 for 4`() {
+        val useCase = LargestPalindromeForFactorsBelow(4)
+        val value = useCase.palindrome()
+        assertEquals(9, value)
+    }
 }
