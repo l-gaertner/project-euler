@@ -1,7 +1,7 @@
 package com.lgaertner.euler.usecase
 
-class LargestPalindromeForFactorsBelow(maxFactors: Int) {
+class LargestPalindromeForFactorsBelow(private val maxFactors: Int) {
     fun palindrome(): Int {
-        return 1;
+        return maxFactors * maxFactors;
     }
 }
