@@ -5,7 +5,7 @@ class LargestPalindromeForFactorsBelow(private val maxFactors: Int) {
         return if(maxFactors * maxFactors < 10) {
             maxFactors * maxFactors
         } else {
-            (maxFactors-1) * (maxFactors-1)
+            9
         }
     }
 }
