@@ -1,32 +1,35 @@
 package com.lgaertner.euler.math
 
-class PrimeFactors(private val number: Int) : Wrapper<Collection<Int>> {
+import com.lgaertner.euler.math.collectionops.Collectable
+import kotlin.math.sqrt
 
-    fun values(): Collection<Int> {
+class PrimeFactors(private val number: Long) : Collectable<Number> {
+
+    fun values(): Collection<Long> {
         return if (isPrime()) {
             listOf(1, number)
-        } else FactorsWithoutOneAndSelf(number)
+        } else factorsWithoutOneAndSelf(number)
     }
 
     private fun isPrime(): Boolean {
         return isPrimeNumber(number)
     }
 
-    private fun isPrimeNumber(value: Int): Boolean {
-        if (value == 1)
+    private fun isPrimeNumber(value: Long): Boolean {
+        if (value == 1L)
             return false
-        if (value == 2)
+        if (value == 2L)
             return true
-        return FactorsWithoutOneAndSelf(value).isEmpty()
+        return factorsWithoutOneAndSelf(value).isEmpty()
     }
 
-    private fun FactorsWithoutOneAndSelf(value: Int): Collection<Int> {
-        val values = List(value - 2) { it + 2 }
-        val factorsWithoutOneAndSelf = values.filter { value % it == 0 }
+    private fun factorsWithoutOneAndSelf(value: Long): Collection<Long> {
+        val values = List(sqrt(value.toDouble()).toInt()) { it + 2L }
+        val factorsWithoutOneAndSelf = values.filter { value % it == 0L }
         return factorsWithoutOneAndSelf.filter { isPrimeNumber(it) }
     }
 
-    override fun collapse(): Collection<Int> {
+    override fun collect(): Collection<Long> {
         return values()
     }
 }

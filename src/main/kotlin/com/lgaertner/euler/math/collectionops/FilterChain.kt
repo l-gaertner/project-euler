@@ -1,4 +1,4 @@
-package com.lgaertner.euler.math
+package com.lgaertner.euler.math.collectionops
 
 interface FilterChain<K> {
     fun value(): Boolean

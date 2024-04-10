@@ -1,6 +1,8 @@
 package com.lgaertner.euler.math
 
-class FibonacciSeries(private val startValues: List<Int>, private val maxValue: Int) {
+import com.lgaertner.euler.math.collectionops.Collectable
+
+class FibonacciSeries(private val startValues: List<Int>, private val maxValue: Int) : Collectable<Int> {
 
     fun values(): List<Int> {
         if (startValues.last() > maxValue)
@@ -10,5 +12,9 @@ class FibonacciSeries(private val startValues: List<Int>, private val maxValue: 
             listOf(startValues, listOf(startValues.last() + startValues.dropLast(1).last())).flatten()
 
         return FibonacciSeries(newValues, maxValue).values()
+    }
+
+    override fun collect(): Collection<Int> {
+        return values()
     }
 }
